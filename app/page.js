@@ -21,7 +21,6 @@ export default function Home() {
             })
             .catch((error) => setError(error))
             .finally(() => {
-                console.log("finally", games);
                 setLoading(false);
             });
     }, []);
