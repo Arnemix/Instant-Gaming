@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import NavBar from "@/components/navbar/NavBar";
+import Carousel from "@/components/carousel/Carousel";
 import GameCard from "@/components/gameCard/GameCard";
-import Link from "next/link";
+import NavBar from "@/components/navbar/NavBar";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const [error, setError] = useState(null);
@@ -42,7 +42,7 @@ export default function Home() {
             <section className="section-carousel">
                 <h1 className="section-title">Les coups de 💘</h1>
                 <div className="carousel-container">
-                    
+                    <Carousel games={loveGames} />
                 </div>
             </section>
         </div>
