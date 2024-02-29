@@ -2,6 +2,7 @@ import Link from "next/link";
 import "./style.scss";
 
 const GameCard = ({ game }) => {
+    
     return (
         <div className="game-card">
             <Link className="game-card-content" href={`/games/${game.id}`}>
