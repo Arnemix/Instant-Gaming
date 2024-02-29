@@ -1,6 +1,6 @@
 import React from "react";
 import { GiRetroController } from "react-icons/gi";
-import "./style.css";
+import "./style.scss";
 
 const Loader = () => {
     return (

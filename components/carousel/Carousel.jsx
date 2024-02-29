@@ -24,7 +24,6 @@ const Carousel = ({ games }) => {
                             <h1>{game.title}</h1>
                         </div>
                         <div className="text-content">
-                            <p>{game.short_description}</p>
                             <p>
                                 <span>Date de sortie</span> : {game.release_date}
                             </p>
