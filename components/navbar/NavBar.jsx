@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./style.scss";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/instant-gaming-logo.svg";

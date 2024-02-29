@@ -7,7 +7,24 @@ import Link from "next/link";
 export default function Home() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [games, setGames] = useState([1, 2, 3, 4, 5, 5]);
+    const [games, setGames] = useState([]);
+    const [trendsGames, setTrendsGames] = useState([]);
+    const [loveGames, setLoveGames] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/games")
+            .then((res) => res.json())
+            .then((data) => {
+                setGames(data);
+                setTrendsGames(data.slice(0, 6));
+                setLoveGames(data.slice(6, 12));
+            })
+            .catch((error) => setError(error))
+            .finally(() => {
+                console.log("finally", games);
+                setLoading(false);
+            });
+    }, []);
 
     if (error) return <h1>Une erreur est survenue : {error}</h1>;
 
@@ -15,16 +32,17 @@ export default function Home() {
         <div className="root">
             <NavBar />
             <section className="section-tendances">
-                <h1>Tendances</h1>
+                <h1 className="section-title">Nos jeux tendances 🔥</h1>
                 <div className="games-container">
-                    {games.map((game, index) => {
+                    {trendsGames.map((game, index) => {
                         return <GameCard key={index} game={game} />;
                     })}
                 </div>
             </section>
-            <section className="section-panel">
-                <div className="trust-pilot">
-                    <Link href="https://fr.trustpilot.com/review/instant-gaming.com?utm_medium=trustbox&utm_source=Mini">T</Link>
+            <section className="section-carousel">
+                <h1 className="section-title">Les coups de 💘</h1>
+                <div className="carousel-container">
+                    
                 </div>
             </section>
         </div>

@@ -1,0 +1,25 @@
+.game-card-content {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    img {
+        width: 100%;
+        border-radius: 10px;
+        &:hover {
+            scale: 1.05;
+            transition: 0.5s;
+        }
+    }
+    .game-content {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        text-decoration: none;
+        .content-description {
+            h1 {
+                font-size: x-large;
+                color: gray;
+            }
+        }
+    }
+}

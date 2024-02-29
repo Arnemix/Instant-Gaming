@@ -16,14 +16,27 @@ svg {
 }
 
 .games-container {
+    margin-top: 30px;
     width: 100%;
+    height: auto;
     justify-content: center;
     display: grid;
     grid-template-columns: 30% 30% 30%;
     gap: 20px;
-    padding: 20px;
-    .game-card {
-        border: 1px solid red;
-        height: 150px;
+}
+
+.section-tendances {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.section-title {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    span {
+        text-decoration: double underline;
     }
+}
+section {
+    margin-bottom: 100px;
 }

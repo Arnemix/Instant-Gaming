@@ -1,24 +1,24 @@
-import React from "react";
-import { BsCart } from "react-icons/bs";
+import Link from "next/link";
+import "./style.scss";
 
 const GameCard = ({ game }) => {
     return (
         <div className="game-card">
-            <div className="game-image">
-                <img src={game.image} alt={game.name} />
-            </div>
-            <div className="game-content">
-                <div className="content-description">
-                    <h1>{game.name}</h1>
-                    <p>{game.description}</p>
+            <Link className="game-card-content" href={`/games/${game.id}`}>
+                <div className="game-image">
+                    <img src={game.thumbnail} alt={game.title} />
                 </div>
-                <div className="content-options">
-                    <h3>Prix : {game.price}€</h3>
+                <div className="game-content">
+                    <div className="content-description">
+                        <h1>{game.title}</h1>
+                    </div>
+                    <div className="content-options">
+                        <h3>
+                            {Math.floor(Math.random() * 100)} {game.price}€
+                        </h3>
+                    </div>
                 </div>
-                <button>
-                    <BsCart />
-                </button>
-            </div>
+            </Link>
         </div>
     );
 };
