@@ -14,3 +14,16 @@ body {
 svg {
     color: white;
 }
+
+.games-container {
+    width: 100%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 20px;
+    padding: 20px;
+    .game-card {
+        border: 1px solid red;
+        height: 150px;
+    }
+}

@@ -10,8 +10,8 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { FaXbox } from "react-icons/fa";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa6";
-import { FaWandMagic as darkModeIcon } from "react-icons/fa6";
-import { FaWandMagicSparkles as lightModeIcon } from "react-icons/fa6";
+import { FaWandMagic as DarkModeIcon } from "react-icons/fa6";
+import { FaWandMagicSparkles as LightModeIcon } from "react-icons/fa6";
 
 const NavBar = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -40,6 +40,9 @@ const NavBar = () => {
                 ))}
             </div>
             <div className="navbar-options">
+                <Link onClick={toggleDarkMode} href={"/"}>
+                    {darkMode ? <DarkModeIcon className="navbar-icon" /> : <LightModeIcon className="navbar-icon" />}
+                </Link>
                 <Link href={"/"}>{}</Link>
                 <Link href={"/panier"}>
                     <PiShoppingCartSimpleBold className="navbar-icon" />

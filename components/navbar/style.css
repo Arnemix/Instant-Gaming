@@ -1,12 +1,13 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     background-color: black;
     height: 10vh;
     .navbar-icon {
-        height: 100%;
-        width: auto;
+        height: 80%;
+        padding-left: 10px;
         img {
             height: 100%;
         }
