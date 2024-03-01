@@ -93,7 +93,7 @@ function GameDetails() {
                         </p>
                     </div>
                     <div className="game-options">
-                        <button className="button">Ajouter au panier {Math.floor(Math.random() * (100 - 50 + 1)) + 50}€</button>
+                        <button className="button">Ajouter au panier {game.price}€</button>
                     </div>
                 </div>
             </div>

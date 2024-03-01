@@ -1,13 +1,12 @@
-import Loader from "@/components/loader/Loader";
-import React from "react";
+import "@/app/globals.css";
+import GamesContainer from "@/components/games/GamesContainer";
 
-const page = () => {
+const PlayStationGames = () => {
     return (
-        <div>
-            <h1>Salut</h1>
-            <Loader />
-        </div>
+        <>
+            <GamesContainer platform="PS4" />
+        </>
     );
 };
 
-export default page;
+export default PlayStationGames;

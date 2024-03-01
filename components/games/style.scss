@@ -1,0 +1,31 @@
+.games-options {
+    margin-top: 30px;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    input {
+        min-width: 100px;
+        height: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
+        font-size: 15px;
+        text-align: center;
+    }
+    .games-sort {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        select {
+            padding: 10px;
+            border-radius: 10px;
+            font-family: barlow, arial, sans-serif;
+        }
+    }
+    .games-search {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+}

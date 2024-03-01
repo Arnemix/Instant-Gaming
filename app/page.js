@@ -11,6 +11,8 @@ export default function Home() {
     const [games, setGames] = useState([]);
     const [trendsGames, setTrendsGames] = useState([]);
     const [loveGames, setLoveGames] = useState([]);
+    const [lowestPrice, setLowestPrice] = useState([]);
+    const [showMoreLowestPrice, setShowMoreLowestPrice] = useState(false);
 
     useEffect(() => {
         fetch("/api/games")
@@ -19,6 +21,7 @@ export default function Home() {
                 setGames(data);
                 setTrendsGames(data.slice(0, 6));
                 setLoveGames(data.slice(6, 12));
+                setLowestPrice(data.filter((game) => game.price <= 10).slice(0, 6));
             })
             .catch((error) => setError(error))
             .finally(() => {
@@ -44,6 +47,38 @@ export default function Home() {
                 <h1 className="section-title">Les coups de 💘</h1>
                 <div className="carousel-container">
                     <Carousel games={loveGames} />
+                </div>
+            </section>
+            <section className="section-lowest-price">
+                <h1 className="section-title">💶 Jouer à moins de 10€ ? C'est possible !</h1>
+                <div className="games-container show-more">
+                    {lowestPrice.map((game, index) => {
+                        return <GameCard key={index} game={game} showDate={true} />;
+                    })}
+                </div>
+                <div className="show-more-button">
+                    {showMoreLowestPrice ? (
+                        <button
+                            className="button"
+                            onClick={() => {
+                                setShowMoreLowestPrice(false);
+                                setLowestPrice(games.filter((game) => game.price <= 10).splice(0, 6));
+                                console.log(lowestPrice);
+                            }}
+                        >
+                            Voir moins
+                        </button>
+                    ) : (
+                        <button
+                            className="button"
+                            onClick={() => {
+                                setShowMoreLowestPrice(true);
+                                setLowestPrice(games.filter((game) => game.price <= 10));
+                            }}
+                        >
+                            Voir plus
+                        </button>
+                    )}
                 </div>
             </section>
         </div>

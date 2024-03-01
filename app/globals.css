@@ -31,10 +31,22 @@ svg {
     margin-top: 30px;
 }
 
+.show-more-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    button {
+        padding: 20px 50px 20px 50px;
+        font-size: 20px;
+    }
+}
+
 /* Styles globaux */
 .section-title {
-    margin-left: 30px;
+    margin-left: 60px;
     margin-bottom: 10px;
+    font-size: 30px;
     span {
         text-decoration: double underline;
     }

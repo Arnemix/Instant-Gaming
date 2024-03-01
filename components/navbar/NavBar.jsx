@@ -35,9 +35,9 @@ const NavBar = () => {
             <div className="navbar-menu">
                 {menu.map((item) => (
                     <Link href={item.link} key={item.name}>
-                        <h3>
-                            {item.icon} {item.name} <FaAngleDown />
-                        </h3>
+                        <h2 style={{display: "flex", alignItems: "center", gap: "5px", marginLeft: "10px"}}>
+                            {item.icon} {item.name} 
+                        </h2>
                     </Link>
                 ))}
             </div>
