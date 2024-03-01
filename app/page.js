@@ -1,6 +1,7 @@
 "use client";
 import Carousel from "@/components/carousel/Carousel";
 import GameCard from "@/components/gameCard/GameCard";
+import Loader from "@/components/loader/Loader";
 import NavBar from "@/components/navbar/NavBar";
 import { useEffect, useState } from "react";
 
@@ -26,6 +27,7 @@ export default function Home() {
     }, []);
 
     if (error) return <h1>Une erreur est survenue : {error}</h1>;
+    if (loading) return <Loader />;
 
     return (
         <div className="root">
