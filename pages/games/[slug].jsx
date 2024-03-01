@@ -7,7 +7,6 @@ import { FaExternalLinkAlt, FaPlaystation, FaXbox } from "react-icons/fa";
 import { FaComputer } from "react-icons/fa6";
 import "@/app/globals.css";
 import "./style.scss";
-import Link from "next/link";
 
 // Note : régler le problème de CSS dans la navbar quand elle est appelée dans ce composant
 
