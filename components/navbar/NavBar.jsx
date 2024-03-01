@@ -28,7 +28,9 @@ const NavBar = () => {
     return (
         <div className="navbar">
             <div className="navbar-icon">
-                <Image src={logo} alt="logo" width={200} height={100} />
+                <Link href={"/"}>
+                    <Image src={logo} alt="logo" width={200} height={100} />
+                </Link>
             </div>
             <div className="navbar-menu">
                 {menu.map((item) => (
