@@ -2,7 +2,6 @@ import Link from "next/link";
 import "./style.scss";
 
 const GameCard = ({ game }) => {
-    
     return (
         <div className="game-card">
             <Link className="game-card-content" href={`/games/${game.id}`}>
@@ -14,9 +13,7 @@ const GameCard = ({ game }) => {
                         <h1>{game.title}</h1>
                     </div>
                     <div className="content-options">
-                        <h3>
-                            {Math.floor(Math.random() * 100)} {game.price}€
-                        </h3>
+                        <h3>{Math.floor(Math.random() * (100 - 50 + 1)) + 50}€</h3>
                     </div>
                 </div>
             </Link>

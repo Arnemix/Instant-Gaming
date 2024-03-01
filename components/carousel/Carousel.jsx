@@ -28,10 +28,10 @@ const Carousel = ({ games }) => {
                                 <span>Date de sortie</span> : {game.release_date}
                             </p>
                             <p>
-                                <span>Genre :</span> : {game.genre}
+                                <span>Genre</span> : {game.genre}
                             </p>
                             <p>
-                                <span>Editeur :</span> : {game.publisher}
+                                <span>Editeur</span> : {game.publisher}
                             </p>
                             <button onClick={() => window.open(game.game_url, "_blank")}>Page du jeu</button>
                         </div>
