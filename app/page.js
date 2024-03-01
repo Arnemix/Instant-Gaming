@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Carousel from "@/components/carousel/Carousel";
 import GameCard from "@/components/gameCard/GameCard";
@@ -63,7 +64,6 @@ export default function Home() {
                             onClick={() => {
                                 setShowMoreLowestPrice(false);
                                 setLowestPrice(games.filter((game) => game.price <= 10).splice(0, 6));
-                                console.log(lowestPrice);
                             }}
                         >
                             Voir moins
