@@ -1,14 +1,15 @@
+import "@/app/globals.css";
 import Loader from "@/components/loader/Loader";
 import NavBar from "@/components/navbar/NavBar";
+import { addToCart, test } from "@/redux/userCart";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { FaExternalLinkAlt, FaPlaystation, FaXbox } from "react-icons/fa";
 import { FaComputer } from "react-icons/fa6";
-import "@/app/globals.css";
+import { useDispatch } from "react-redux"; // Nous n'avons plus besoin de Provider ici
 import "./style.scss";
-
-// Note : régler le problème de CSS dans la navbar quand elle est appelée dans ce composant
+import { Toaster } from "react-hot-toast";
 
 function GameDetails() {
     const [error, setError] = useState(null);
@@ -16,6 +17,7 @@ function GameDetails() {
     const [games, setGames] = useState([]);
     const [game, setGame] = useState({});
     const router = useRouter();
+    const dispatch = useDispatch();
 
     const getPlateforme = (game) => {
         if (game.platform === "PC (Windows)") {
@@ -61,6 +63,7 @@ function GameDetails() {
 
     return (
         <>
+            <Toaster position="bottom-left" reverseOrder={false} />
             <NavBar />
             <div className="game-details-container">
                 <div className="game-details-image">
@@ -92,7 +95,9 @@ function GameDetails() {
                         </p>
                     </div>
                     <div className="game-options">
-                        <button className="button">Ajouter au panier {game.price}€</button>
+                        <button onClick={() => dispatch(addToCart(game))} className="button">
+                            Ajouter au panier {game.price}€
+                        </button>
                     </div>
                 </div>
             </div>
