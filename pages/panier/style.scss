@@ -35,12 +35,61 @@
     }
     .cart-card-content {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        margin: 0 20px 0 20px;
         align-items: center;
         width: 100%;
     }
 }
 
-.remove-item-button {
+.cart-item-button {
     padding: 10px;
+}
+
+.cart-summary {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: large;
+    background-color: black;
+    padding: 50px 0 50px 0;
+    border-radius: 20px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+// Medias queries
+
+@media (max-width: 768px) {
+    .cart-items-container {
+        width: 95%;
+    }
+    .cart-game-card {
+        display: flex;
+        width: 90%;
+        font-size: small;
+        img {
+            height: 90%;
+            width: auto;
+        }
+    }
+    .cart-game-card {
+        .cart-card-content {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 20px 0 20px;
+            align-items: center;
+            width: 100%;
+        }
+    }
+    .cart-summary {
+        display: block;
+        width: 90%;
+        font-size: small;
+        display: flex;
+    }
 }

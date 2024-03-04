@@ -29,3 +29,38 @@
         align-items: center;
     }
 }
+
+// Media queries
+@media (max-width: 768px) {
+    .games-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .games-sort {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            select {
+                padding: 10px;
+                border-radius: 10px;
+                font-family: barlow, arial, sans-serif;
+            }
+        }
+    }
+    .games-container {
+        grid-template-columns: 45% 45%;
+    }
+    .games-first-container {
+        h1 {
+            font-size: x-large;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .games-container {
+        grid-template-columns: 95%;
+    }
+}
