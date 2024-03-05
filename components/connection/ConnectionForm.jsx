@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import NavBar from "../navbar/NavBar";
 import "./style.scss";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/userAccount";
 
 function ConnectionForm(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [output, setOutput] = useState("");
+    const dispatch = useDispatch();
 
     const checkConnection = () => {
         if (props.connectionType === "login") {
             if (username && password) {
                 setOutput("Connexion Réussie");
+                dispatch(login( {
+                    name: username,
+                    email: email,
+                    password: password,
+                    isAdmin: false,
+                }))
             } else {
                 setOutput(`Veuillez remplir le champ : ${username ? "Mot de passe" : "Nom d'utilisateur"}`);
             }
@@ -45,7 +54,8 @@ function ConnectionForm(props) {
                         ) : (
                             <></>
                         )}
-                        <button onClick={checkConnection} className="button">
+                        <button 
+                            onClick={checkConnection} className="button">
                             {props.connectionType === "register" ? "S'inscrire" : "Se connecter"}
                         </button>
 

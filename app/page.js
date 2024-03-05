@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import Carousel from "@/components/carousel/Carousel";
+import Footer from "@/components/footer/Footer";
 import GameCard from "@/components/gameCard/GameCard";
 import Loader from "@/components/loader/Loader";
 import NavBar from "@/components/navbar/NavBar";
@@ -81,6 +82,9 @@ export default function Home() {
                     )}
                 </div>
             </section>
+            <Footer>
+                
+            </Footer>
         </div>
     );
 }

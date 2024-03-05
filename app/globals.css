@@ -77,14 +77,31 @@ section {
     }
 }
 
-p {
-    transition: 0.5s;
-    &:hover {
-        color: rgb(254, 64, 32);
-        transition: 0.5s;
+* {
+    user-select: none;
+}
+
+/* Media queries */
+
+@media (max-width: 768px) {
+    .games-container {
+        grid-template-columns: 45% 45%;
+    }
+    .section-title {
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
     }
 }
 
-* {
-    user-select: none;
+@media (max-width: 500px) {
+    .games-container {
+        grid-template-columns: 95%;
+    }
+    .section-title {
+        font-size: x-large;
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+    }
 }
