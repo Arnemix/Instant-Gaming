@@ -1,15 +1,14 @@
 import "@/app/globals.css";
 import Loader from "@/components/loader/Loader";
-import NavBar from "@/components/navbar/NavBar";
-import { addToCart, test } from "@/redux/userCart";
+import { addToCart } from "@/redux/userCart";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { FaExternalLinkAlt, FaPlaystation, FaXbox } from "react-icons/fa";
 import { FaComputer } from "react-icons/fa6";
-import { useDispatch } from "react-redux"; // Nous n'avons plus besoin de Provider ici
+import { useDispatch, useSelector } from "react-redux"; // Nous n'avons plus besoin de Provider ici
 import "./style.scss";
-import { Toaster } from "react-hot-toast";
 
 function GameDetails() {
     const [error, setError] = useState(null);
@@ -18,6 +17,7 @@ function GameDetails() {
     const [game, setGame] = useState({});
     const router = useRouter();
     const dispatch = useDispatch();
+    const userAccount = useSelector((state) => state.userAccount);
 
     const getPlateforme = (game) => {
         if (game.platform === "PC (Windows)") {
@@ -28,6 +28,14 @@ function GameDetails() {
             return <FaXbox />;
         } else {
             return <BsNintendoSwitch />;
+        }
+    };
+
+    const check = (game) => {
+        if (userAccount.name) {
+            dispatch(addToCart(game));
+        } else {
+            toast.error(`Veuillez vous connecter pour ajouter ${game.title} à votre panier`);
         }
     };
 
@@ -64,7 +72,7 @@ function GameDetails() {
     return (
         <>
             <Toaster position="bottom-left" reverseOrder={false} />
-            
+
             <div className="game-details-container">
                 <div className="game-details-image">
                     <img src={game.thumbnail} alt={game.title} />
@@ -95,7 +103,7 @@ function GameDetails() {
                         </p>
                     </div>
                     <div className="game-options">
-                        <button onClick={() => dispatch(addToCart(game))} className="button">
+                        <button onClick={() => check(game)} className="button">
                             Ajouter au panier {game.price}€
                         </button>
                     </div>
