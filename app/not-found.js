@@ -10,7 +10,7 @@ const Custom404 = () => {
             </div>
             <div style={styles.notFoundText} className="not-found-text">
                 <h1>Erreur 404 - Vous avez trouvé la fin du monde virtuel !</h1>
-                <Link href={"/"}>
+                <Link href={"/home"}>
                     <button style={styles.button} className="button">
                         Bouton de secours
                     </button>

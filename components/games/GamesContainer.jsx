@@ -68,7 +68,7 @@ const GamesContainer = (props) => {
     if (originalGames.length === 0)
         return (
             <>
-                <NavBar />
+                
                 <div style={{ margin: "50px 0 50px 0", display: "flex", flexDirection: "column", alignItems: "center" }} className="page-container">
                     <h1>Aucun jeu {props.platform}, nous en ajouterons bientôt</h1>
                     <Loader />
@@ -78,7 +78,7 @@ const GamesContainer = (props) => {
 
     return (
         <>
-            <NavBar />
+            
             <div style={{ margin: "50px 0 50px 0", display: "flex", flexDirection: "column", alignItems: "center" }} className="games-first-container">
                 <h1>
                     Découvrez nos {originalGames.length} jeux {props.platform}

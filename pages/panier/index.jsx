@@ -9,13 +9,10 @@ import "./style.scss";
 function CartPage(props) {
     const cart = useSelector((state) => state.userCart);
 
-    useEffect(() => {
-        console.log(`Panier : ${JSON.stringify(cart)}`);
-    }, [cart]);
     return (
         <>
             <Toaster position="bottom-left" />
-            <NavBar />
+
             <div className="page-container">
                 <h1 className="page-title">Mon panier</h1>
                 <div className="cart-items-container">

@@ -64,7 +64,7 @@ function GameDetails() {
     return (
         <>
             <Toaster position="bottom-left" reverseOrder={false} />
-            <NavBar />
+            
             <div className="game-details-container">
                 <div className="game-details-image">
                     <img src={game.thumbnail} alt={game.title} />

@@ -45,3 +45,11 @@
         width: 50%;
     }
 }
+
+// Media queries
+
+@media (max-width: 768px) {
+    .login-form {
+        width: 90%;
+    }
+}
