@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import "@/app/globals.css";
+import { useEffect, useState } from "react";
 import GameCard from "../gameCard/GameCard";
 import Loader from "../loader/Loader";
-import NavBar from "../navbar/NavBar";
-import "@/app/globals.css";
 import "./style.scss";
 
 const GamesContainer = (props) => {
@@ -10,43 +9,37 @@ const GamesContainer = (props) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [originalGames, setOriginalGames] = useState([]);
-    const [searchTerms, setSearchTerms] = useState("");
-    const [publisherName, setPublisherName] = useState("");
+    const [publisherGames, setPublisherGames] = useState([]);
 
-    const handleSearch = (terms) => {
-        setSearchTerms(terms);
+    const sort = (sortType, publisherName) => {
+        let sortedGames = [...games];
 
-        if (!terms && !publisherName) {
-            setGames(originalGames);
-        } else {
-            sort("title");
-        }
-    };
-
-    const sort = (sortType) => {
-        let sortedGames = [...originalGames];
-
-        // Filtrer les jeux selon les termes de recherche
-        if (searchTerms) {
-            sortedGames = sortedGames.filter((game) => game.title.toLowerCase().includes(searchTerms.toLowerCase()));
-        }
-
-        // Filtrer les jeux par éditeur si un éditeur est sélectionné
-        if (publisherName) {
-            sortedGames = sortedGames.filter((game) => game.publisher === publisherName);
-        }
-
-        // Trier les jeux selon le critère sélectionné
         if (sortType === "date") {
             sortedGames.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
         } else if (sortType === "title") {
             sortedGames.sort((a, b) => a.title.localeCompare(b.title));
-        } else if (sortType === "publisher") {
-            sortedGames = sortedGames.filter((game) => game.publisher);
-            sortedGames.sort((a, b) => a.publisher.localeCompare(b.publisher));
         }
-
+        if (sortType === "publisher") {
+            if (publisherName === "Tous") {
+                setGames(originalGames);
+                return;
+            }
+            sortedGames = sortedGames.filter((game) => game.publisher === publisherName);
+            setPublisherGames(sortedGames);
+        }
         setGames(sortedGames);
+    };
+
+    const handleSearch = (terms) => {
+        if (!terms) {
+            if (publisherGames.length > 0) {
+                setGames(publisherGames);
+                return;
+            }
+            setGames(originalGames);
+            return;
+        }
+        setGames(games.filter((game) => game.title.toLowerCase().includes(terms.toLowerCase())));
     };
 
     useEffect(() => {
@@ -68,7 +61,6 @@ const GamesContainer = (props) => {
     if (originalGames.length === 0)
         return (
             <>
-                
                 <div style={{ margin: "50px 0 50px 0", display: "flex", flexDirection: "column", alignItems: "center" }} className="page-container">
                     <h1>Aucun jeu {props.platform}, nous en ajouterons bientôt</h1>
                     <Loader />
@@ -78,7 +70,6 @@ const GamesContainer = (props) => {
 
     return (
         <>
-            
             <div style={{ margin: "50px 0 50px 0", display: "flex", flexDirection: "column", alignItems: "center" }} className="games-first-container">
                 <h1>
                     Découvrez nos {originalGames.length} jeux {props.platform}
@@ -93,13 +84,13 @@ const GamesContainer = (props) => {
                         </select>
                         <select
                             onChange={(e) => {
-                                setPublisherName(e.target.value);
-                                sort("publisher");
+                                sort("publisher", e.target.value);
                             }}
                             name="publisher"
                             id=""
                         >
-                            {games.map((game) => {
+                            <option value="Tous">Tous</option>
+                            {originalGames.map((game) => {
                                 return (
                                     <option key={game.id} value={game.publisher}>
                                         {game.publisher}
@@ -110,7 +101,7 @@ const GamesContainer = (props) => {
                     </div>
                     <div className="games-search">
                         <input onChange={(e) => handleSearch(e.target.value)} type="text" placeholder="Rechercher..." />
-                        {searchTerms ? <p style={{ color: "white" }}>Jeux trouvés : {games.length}</p> : null}
+                        {games.length === 0 ? <p style={{ color: "white" }}>Jeux trouvés : {games.length}</p> : null}
                     </div>
                 </div>
                 <div className="games-container">

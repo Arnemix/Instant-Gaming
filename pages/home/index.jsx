@@ -36,8 +36,6 @@ export default function Home() {
 
     return (
         <div className="root">
-            {/* <Provider store={store}> */}
-            {/* <NavBar /> */}
             <section className="section-tendances">
                 <h1 className="section-title">Nos jeux tendances 🔥</h1>
                 <div className="games-container">
@@ -83,8 +81,6 @@ export default function Home() {
                     )}
                 </div>
             </section>
-            <Footer></Footer>
-            {/* </Provider> */}
         </div>
     );
 }
