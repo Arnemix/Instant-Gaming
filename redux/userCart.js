@@ -9,7 +9,7 @@ const userCart = createSlice({
             const game = state.find((item) => item.id === action.payload.id);
             if (game) {
                 game.quantity++;
-                toast.success(`${action.payload.title} a été ajouté à votre panier (Doublons : ${game.quantity})`, {
+                toast.success(`${action.payload.title} a été ajouté à votre panier (x${game.quantity})`, {
                     duration: 3000,
                     icon: "👌",
                 });
@@ -27,7 +27,7 @@ const userCart = createSlice({
             if (game) {
                 if (game.quantity > 1) {
                     game.quantity--;
-                    toast.success(`${action.payload.title} a été retiré de votre panier (Doublons : ${game.quantity})`, {
+                    toast.success(`${action.payload.title} a été retiré de votre panier (x${game.quantity})`, {
                         duration: 3000,
                         icon: "🗑️",
                     });
@@ -40,7 +40,7 @@ const userCart = createSlice({
                     });
                 }
             } else {
-                toast.error(`${action.payload.title} n'a pas été dans votre panier`, {
+                toast.error(`Une erreur est survenue`, {
                     duration: 3000,
                     icon: "❌",
                 });

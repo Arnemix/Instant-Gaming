@@ -1,18 +1,14 @@
-import React, { useState } from "react";
-import "./style.scss";
-import Link from "next/link";
 import Image from "next/image";
-import logo from "../../public/instant-gaming-logo.svg";
-import { FaAngleDown } from "react-icons/fa";
-import { RiComputerLine } from "react-icons/ri";
-import { FaPlaystation } from "react-icons/fa";
+import Link from "next/link";
+import { useState } from "react";
 import { BsNintendoSwitch } from "react-icons/bs";
-import { FaXbox } from "react-icons/fa";
+import { FaPlaystation, FaXbox } from "react-icons/fa";
+import { FaWandMagic as DarkModeIcon, FaRegUser, FaWandMagicSparkles as LightModeIcon } from "react-icons/fa6";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
-import { FaRegUser } from "react-icons/fa6";
-import { FaWandMagic as DarkModeIcon } from "react-icons/fa6";
-import { FaWandMagicSparkles as LightModeIcon } from "react-icons/fa6";
+import { RiComputerLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
+import logo from "../../public/instant-gaming-logo.svg";
+import "./style.scss";
 
 const NavBar = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -52,7 +48,7 @@ const NavBar = () => {
                     <PiShoppingCartSimpleBold className="navbar-icon" />
                 </Link>
                 {userAccount.name ? (
-                    <p>Bonjour {userAccount.name} !</p>
+                    <p> Utilisateur : {userAccount.name} !</p>
                 ) : (
                     <Link href={"/login"}>
                         <FaRegUser className="navbar-icon" />
