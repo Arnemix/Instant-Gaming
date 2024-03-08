@@ -5,7 +5,13 @@ import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import "./style.scss";
-
+// Pour le dark mode
+// const isDarkMode = true;
+// if (isDarkMode) {
+//     import("./dark.scss");
+// } else {
+//     import("./style.scss");
+// }
 function CartPage(props) {
     const cart = useSelector((state) => state.userCart);
 
