@@ -12,7 +12,6 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [games, setGames] = useState([]);
     const [trendsGames, setTrendsGames] = useState([]);
-    const [loveGames, setLoveGames] = useState([]);
     const [lowestPrice, setLowestPrice] = useState([]);
     const [showMoreLowestPrice, setShowMoreLowestPrice] = useState(false);
 
@@ -22,7 +21,6 @@ export default function Home() {
             .then((data) => {
                 setGames(data);
                 setTrendsGames(data.slice(0, 6));
-                setLoveGames(data.slice(6, 12));
                 setLowestPrice(data.filter((game) => game.price <= 10).slice(0, 6));
             })
             .catch((error) => setError(error))
@@ -47,7 +45,7 @@ export default function Home() {
             <section className="section-carousel">
                 <h1 className="section-title">Les coups de 💘</h1>
                 <div className="carousel-container">
-                    <Carousel games={loveGames} />
+                    <Carousel games={games} />
                 </div>
             </section>
             <section className="section-lowest-price">

@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 
-const Carousel = ({ games }) => {
+const Carousel = (props) => {
     const [slide, setSlide] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [games, setGames] = useState(props.games);
+
+    const shuffleGames = () => {
+        setGames(
+            props.games
+                .sort(() => {
+                    return Math.random() - 0.5;
+                })
+                .slice(0, 6)
+        );
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        shuffleGames();
+    }, []);
 
     const nextSlide = () => {
         setSlide(slide === games.length - 1 ? 0 : slide + 1);
