@@ -9,12 +9,14 @@ import { RiComputerLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import logo from "../../public/instant-gaming-logo.svg";
 import "./style.scss";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
     const [darkMode, setDarkMode] = useState(true);
     const userAccount = useSelector((state) => state.userAccount);
 
     const toggleDarkMode = () => {
+        toast.error("Fonctionnalité en cours de construction !");
         setDarkMode(!darkMode);
     };
     const menu = [

@@ -40,12 +40,23 @@
             text-decoration: none;
             .navbar-icon {
                 height: 30% !important;
+                scale: 1.4;
+                padding-left: 5px;
+                padding-right: 5px;
             }
         }
     }
 }
 
 @media (max-width: 768px) {
+    .cart-game-card {
+        width: 95% !important;
+    }
+    .cart-summary {
+        display: block;
+        width: 95% !important;
+        font-size: x-small !important;
+    }
     .navbar {
         padding-bottom: 10px;
         padding-top: 10px;

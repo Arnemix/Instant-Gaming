@@ -25,8 +25,8 @@ function CartPage(props) {
                     )}
                 </div>
                 <div className="cart-summary">
-                    <h2>Total : {cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}€</h2>
-                    <h2>TVA : {cart.reduce((acc, item) => acc + item.price * item.quantity * 0.21, 0)}€</h2>
+                    <h2>Total : {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}€</h2>
+                    <h2>TVA : {cart.reduce((acc, item) => acc + item.price * item.quantity * 0.21, 0).toFixed(2)}€</h2>
                     <button
                         onClick={() => {
                             toast.error("Les moyens de paiements ne sont pas encore disponibles");
